@@ -35,6 +35,7 @@ void bit_radix_tree_insert(bit_radix_tree_t *tree, const unsigned char *key, int
 void *bit_radix_tree_exact_match(bit_radix_tree_t *tree, const unsigned char *key, int key_len);
 int bit_radix_tree_prefix_match(bit_radix_tree_t *tree, const unsigned char *key, int key_len, void **value);
 void bit_radix_tree_remove(bit_radix_tree_t *tree, const unsigned char *key, int key_len, void **value);
+void bit_radix_tree_erase(bit_radix_tree_t *tree, const unsigned char *key, int key_len);
 void bit_radix_tree_clear(bit_radix_tree_t *tree);
 void bit_radix_tree_destroy(bit_radix_tree_t *tree);
 void bit_radix_tree_dump(bit_radix_tree_t *tree);

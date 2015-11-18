@@ -539,6 +539,16 @@ void bit_radix_tree_remove(bit_radix_tree_t *tree, const unsigned char *key, int
     }
 }
 
+void bit_radix_tree_erase(bit_radix_tree_t *tree, const unsigned char *key, int key_len)
+{
+    void *value;
+    bit_radix_tree_remove(tree, key, key_len, &value);
+    if (value != NULL && tree->delete_leaf)
+    {
+        tree->delete_leaf(value);
+    }
+}
+
 void bit_radix_tree_clear(bit_radix_tree_t *tree)
 {
     bit_radix_tree_clear_children(tree, tree->root);

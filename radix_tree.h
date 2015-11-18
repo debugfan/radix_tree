@@ -35,6 +35,7 @@ void radix_tree_insert(radix_tree_t *tree, const unsigned char *key, int key_len
 void *radix_tree_exact_match(radix_tree_t *tree, const unsigned char *key, int key_len);
 int radix_tree_prefix_match(radix_tree_t *tree, const unsigned char *key, int key_len, void **value);
 void radix_tree_remove(radix_tree_t *tree, const unsigned char *key, int key_len, void **value);
+void radix_tree_erase(radix_tree_t *tree, const unsigned char *key, int key_len);
 void radix_tree_clear(radix_tree_t *tree);
 void radix_tree_destroy(radix_tree_t *tree);
 void radix_tree_dump(radix_tree_t *tree);

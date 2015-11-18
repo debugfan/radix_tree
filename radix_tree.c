@@ -507,6 +507,16 @@ void radix_tree_remove(radix_tree_t *tree, const unsigned char *key, int key_len
     }
 }
 
+void radix_tree_erase(radix_tree_t *tree, const unsigned char *key, int key_len)
+{
+    void *value;
+    radix_tree_remove(tree, key, key_len, &value);
+    if (value != NULL && tree->delete_leaf)
+    {
+        tree->delete_leaf(value);
+    }
+}
+
 void radix_tree_clear(radix_tree_t *tree)
 {
     radix_tree_clear_children(tree, tree->root);
